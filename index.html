@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      1. 1. jika student mengisi MAU pada student wish, maka prompt lagi
+      pertanyaan, BERAPA KAH NILAI AKHIR SMA/SMK mu ?
+      2. jika nilai akhir dari SMA/SMK mu kurang dari 30, maka
+      alert "tidak mungkin masuk univ"
+      3. jika nilai akhir dari SMA/SMK mu kurang dari 50, maka
+      lakukan perhitungan chanceGetUniv =
+          3a. jika hasil chanceGetUniv dibawah 50 persen, berikan
+      alert "hmm kemungkinan kamu (NAMA) kecil masuk UNIV"
+          3b. jika hasil chanceGetUniv diatas 50 persen, berikan
+      alert "hmm kemungkinan kamu (NAMA) bisa masuk UNIV"
+      4. jika hasil chanceGetUniv diatas 70 persen DAN Nilai SMA
+      nya diatas 60 maka berikan alert "hei (NAMA) pasti masuk UNIV dengan (NILAI SMA) mu yang besar itu"
+      5. jika hasil chanceGetUniv diatas 70 persen ATAU Nilai SMA
+      nya diatas 80 maka berikan alert "hei (NAMA) pasti masuk UNIV dengan (NILAI SMA) mu yang besar itu"*/
+
+      let nama = prompt("Siapa Namamu?");
+      let studentWish = prompt("Mau masuk Universitas gak?");
+      const chancePassed = Math.floor(Math.random() * 100);
+
+      if (studentWish.toLowerCase() === "mau") { // Handling mismatch input
+        let score = prompt("Berapa nilai SMA mu?");
+        score = parseInt(score);
+        if (isNaN(score) || score === "") {
+          alert("Masukkan angka yaa");
+        } else if (score < 30) {
+          alert("Tidak mungkin masuk univ");
+        } else if (score < 50) {
+          if (chancePassed < 50) {
+            alert(`Kemungkinan kamu ${nama} kecil masuk univ yaitu ${chancePassed}`);
+          } else {
+            alert(`Kemungkinan kamu ${nama} bisa masuk univ yaitu ${chancePassed}`);
+          }
+        } else if (score > 60 && chancePassed >= 70) {
+          alert(`${chancePassed} Kemungkinan kamu masuk ${nama} pasti masuk univ dengan nilai ${score} mu yang besar itu`);
+        } else if (score > 80 || chancePassed >= 70) {
+          alert(`${chancePassed} Kemungkinan kamu masuk ${nama} pasti masuk univ dengan nilai ${score} mu yang besar itu`);
+        } else {
+          alert(`Nilai kamu tinggi ${nama} tapi chancenya ${chancePassed}, ganti univ aja ya`);
+        }
+      } else {
+        alert("Pendidikan itu penting loo");
+      }
+    </script>
+  </body>
+</html>
